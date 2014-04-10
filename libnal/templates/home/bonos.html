@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %} Bonos de Regalo {% endblock %}
+{% block content %} 
+
+<div id="bonusarea" class="col-xs-9 col-sm-9 well">
+	<h2 id="titlebonus"><strong>Tarjeta Bono Regalo</strong></h2>
+	<div id="imgbonus"><img src="/media/images/50011.jpg" alt="Bono de Regalo"></div>	
+	<div class="col-xs-8 col-sm-8"><p><section id="infobonus">
+		El bono de regalo Libreria Nacional tendra un valor de $20.000 hasta $150.000 equivalente en pesos colombianos, 
+		y podra ser redimido o utilizado de manera parcial en cualquiera de nuestros puntos de venta en todo el pais para la compra de libros y/o revistas, (No aplica para consumo en cafeteria).<br>
+		El bono tiene una fecha de caducidad de 6 meses.<br>
+		Nota: No aplica como forma de pago para tienda virtual. <br>(Consultar Bono Regalo Virtual).
+
+	</section></p></div>
+	<div id="bonuszone" class="col-xs-9 col-sm-9">
+	<div class="col-xs-7 col-sm-7">
+		<h5><strong>Valor Bono:</strong></h5>
+		<select id="selectbonus" class="form-control" >
+			<option value="" disabled selected>Seleccione el valor del Bono</option>
+	    {% for i in LISTABONOS %} 
+	        <option value="{{ i }}">{{ i }}</option> 
+	    {% endfor %}
+		</select>
+	</div>
+	<div class="col-xs-2 col-sm-2 ">
+		<h5><strong>Cantidad:</strong></h5>
+		<input id="amountbonus" class="form-control" type="tel" maxlength="3" value="1" onkeypress="return isNumberKey(event)">
+	</div>
+	<button class="btn btn-warning" id="btncalcbonus" onclick="calcbonus()"> Calcular </button>
+	</div>
+	<div id="zonebuy" class="col-xs-11 col-sm-11" style="display:none;" >
+	<h3><strong>Valor Compra:</strong></h3>
+	<div id="totalbonus" class="col-xs-5 col-sm-5"><h1></h1></div>
+	<button class="btn btn-success" id="btnbuybonus" onclick="alert('Si');"> Agregar al Carrito </button>
+	</div>
+</div>
+	
+
+<script type="text/javascript">
+ 	
+ 	function calcbonus(){
+ 		bonusselect = document.getElementById('selectbonus').value;
+ 		amountselect = document.getElementById('amountbonus').value;
+ 		
+ 		if(bonusselect == ""){
+			alert("Selecciona el valor del bono a comprar"); 			
+ 		}
+ 		else if(amountselect == ""){
+ 			alert("Ingresa la cantidad deseada a comprar"); 					
+ 		}
+ 		else if(amountselect == "0" || amountselect == "") {
+ 			alert("Cantidad no valida"); 					
+ 		}
+ 		else
+ 			total = bonusselect*amountselect;
+ 			ttl = accounting.formatMoney(total);
+ 			document.getElementById('zonebuy').style.display = "block";
+	 		document.getElementById('totalbonus').innerHTML = '<h1 style="font-weight: bold;">'+ttl+'</h1>';
+
+  	}
+	
+	function isNumberKey(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+ 
+         return true;
+      }
+
+ </script>
+
+{% endblock %} 
+ 
+ 

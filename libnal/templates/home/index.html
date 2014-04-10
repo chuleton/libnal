@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Bienvenidos {% endblock %}
+{% block content %} 
+
+
+{% if banner %}
+<div class="col-xs-7">
+<div id="banner" class="carousel slide" data-ride="carousel">
+	<div class="carousel-inner">
+	{% for a in banner %}
+		<div class="item">
+			<a href="{{a.url}}"><img src="/media/images/{{a.imagen}}.jpg"></a>
+		</div>
+	{% endfor %}
+		<div class="item active">
+			<a href="{{a.url}}"><img src="/media/images/1.jpg"></a>
+		</div>
+	</div>
+	<a class="left carousel-control" href="#banner" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+	</a>
+    <a class="right carousel-control" href="#banner" data-slide="next">
+    	<span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+</div>
+{% endif %}
+	
+{% endblock %} 

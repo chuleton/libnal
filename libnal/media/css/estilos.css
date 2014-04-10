@@ -1,0 +1,254 @@
+
+/*---------------------------Contenido------------------------------*/
+html{
+	min-height: 768px;
+    min-width: 1024px;
+    max-height: 1600px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+#contenido{
+	margin-top: 20px;
+}
+
+body{
+	margin-left: -50px;
+}
+/*------------------------------------------------------------------*/
+/*------------------------------Zona Libros-------------------------*/
+#menucategorias{
+	text-align: center;
+}
+.list-group-item{
+	height: 35px;
+}
+
+#formatolibros{
+	text-align: center;
+}
+#divlibro{
+	width: 155px;
+	text-align: center;
+	float: right;
+	margin: 10px;
+	margin-right: 5px;
+	width: 150px;
+}
+#cabeceratitulo{
+	padding: 5px;
+}
+#int{
+	-background-color: red;
+	padding: 5px 0px 5px 0px;
+}
+#titulo{
+	color: blue;
+	max-width: 150px;
+	max-height: 10px;
+}
+#precio{
+	font-size: 15px;
+}
+#barratitulo{
+	background-color: blue;
+	text-align: center;
+	height: 60px;
+	position: static;
+}
+/*------------------------------------------------------------------*/
+/*------------------------------Header------------------------------*/
+#header{
+	height: 140px;
+	background-color: silver;
+}
+#logo{
+	-background: blue;
+	float: left;
+	z-index: 999;
+	height: 140px;
+}
+#busqueda{
+	-background: green;
+	float: right;
+	height: 140px;
+	z-index: 100;
+	position: relative;
+}
+/*------------------------------------------------------------------*/
+/*---------------------------Zona Busqueda--------------------------*/
+#searcharea{
+	margin-top: 90px;
+}
+#btnsearch{
+	float: left;
+	margin-left: 360px;
+	margin-top: -35px;
+	height: 35px;
+	z-index: 999;
+}
+#btnsearch2{
+	float: right;
+	margin-top: -35px;
+	height: 35px;
+}
+#btnlogin{
+	z-index: 999;
+	float: right;
+	background: #428bca;
+    border-bottom-right-radius:10px;
+    border-bottom-left-radius: 10px;
+}
+#btnshop{
+    z-index: 999;
+	float: right;
+   	margin-right: 15px; 
+	background: #FF8000;
+    border-bottom-right-radius:10px;
+    border-bottom-left-radius: 10px;
+}
+/*------------------------------------------------------------------*/
+/*-----------------------INICIO DE SESION----------------------------*/
+
+
+#count{
+	padding: 5% 5% 0% 5%;
+}
+#cc{
+	text-align: center;
+}
+.titlelogin{
+	text-align: center;
+	font-weight: bold;
+	margin-top: 13px;
+}
+.titleregister{
+	font-weight: bold;
+}
+#recovercount{
+	text-align: center;
+}
+#registerarea{
+	float: left;
+	margin-top: -20px;
+}
+#btnlog{
+	font-weight: bold;
+}
+#forgot{
+	text-align: center;
+}
+#alertlogin{
+	float: right;
+}
+#inputcapcha{
+	text-align: center;
+	font-weight: bold;
+}
+#capcha{
+	background-color: silver;
+}
+#recapcha{
+	float: right;
+	margin-top: -34px;
+	margin-right: -12px;
+}
+#iconlog{
+	float: right;
+	margin-top: -43px;
+	margin-right: 10px;
+}
+#iconpass{
+	float: right;
+	margin-top: -43px;
+	margin-right: 10px;
+}
+#idloginuser{
+	padding-right: 30px;
+}
+#passloginuser{
+	padding-right: 30px;
+}
+#alertregister{
+	margin-top: 100px;
+}
+#checkinfo{
+	margin-left: 100px;
+}
+/*------------------------------------------------------------------*/
+/*---------------------------CONTACTENOS----------------------------*/
+#about{
+	padding: 4% 4% 0% 2%;
+}
+#icongo{
+	float: right;
+}
+#aboutmenu{
+	margin-top: -47px;
+}
+.titlepsi{
+	font-weight: bold;
+	margin-top: -27px;
+}
+#pqrarea{
+	float: left;
+	margin-top: -47px;
+	padding: 5% 10% 5% 10%;
+}
+#imgciudad{
+	width: 80%;
+	height: 80%;
+}
+/*------------------------------------------------------------------*/
+/*------------------------------INDEX------------------------------*/
+
+
+/*------------------------------------------------------------------*/
+/*------------------------------BONOS-------------------------------*/
+#amountbonus{
+	text-align: center;
+	font-weight: bold;
+}
+#bonusarea{
+	text-align: center;
+	padding-bottom: 20px;
+}
+#imgbonus{
+	float: left;
+	margin-left: 40px;
+	margin-right: 20px;
+}
+#infobonus{
+	text-align: justify;
+	float: right;
+}
+#btncalcbonus{
+	margin-top: 35px;
+	margin-left: -40px;
+}
+#bonuszone{
+	margin-left: 170px;
+	margin-top: -20px;
+	margin-bottom: 20px;
+}
+#totalbonus{
+	position: absolute;
+	margin:auto;
+	width: 350px;
+	height: 70px;
+	margin-top: -62px;
+	margin-left: 130px;
+	text-align: center;
+	color: blue;
+}
+#btnbuybonus{
+	position: absolute;
+	margin-top: -40px;
+	margin-left: 450px;
+}
+#zonebuy{
+	text-align: left;
+	margin: 0% 5% 0% 5%;
+}
+/*------------------------------------------------------------------*/
+/*------------------------------BONOS-------------------------------*/

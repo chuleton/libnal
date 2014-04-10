@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %} Incio de Sesion {% endblock %}
+{% block content %} 
+<div id="count">
+	<div id="loginarea" class="col-xs-4 col-sm-4" >
+		<h2 class="titlelogin">Iniciar Sesion</h2>
+	    <div class="input-group margin-bottom-sm" class="col-xs-12 col-sm-12">
+  			<input class="form-control" type="email" placeholder="Correo Electronico" maxlength="40">
+  			<span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
+		</div><br>
+		<div class="input-group"  class="col-xs-12 col-sm-12">
+  			<input class="form-control" type="password" placeholder="Contraseña" maxlength="20">
+  			<span class="input-group-addon"><i class="fa fa-unlock-alt fa-fw"></i></span>
+		</div><br>
+	    <div id="recovercount">
+	    <button class="btn btn-success" id="btnlog"> Iniciar Sesion </button><br><br>
+	    <a href="#" onclick="showforgot();"> ¿ Olvidaste tu contraseña ?</a><br>
+	    </div><br>
+	    <div id="forgot" style="display:none;" class="alert alert-warning alert-dismissable">
+	    	<div>
+	    	<p>Para recuperar la contraseña:</p>
+	        <input id="emailforgot" class="form-control" type="email" placeholder="Ingresa tu correo electronico"><br>
+	        <button class="btn btn-info" id="btnlog"> Recuperar </button><br>              
+	    	</div>
+	    </div>
+	<div id="alertlogin" class="col-xs-12 col-sm-12" style="display:none;"> 
+ 		<div class="alert alert-danger">Zona Alert, Error en inicio!</div>
+    </div>
+	</div> 
+</div> 
+
+
+<script type="text/javascript">
+	function showforgot(){
+		div = document.getElementById('forgot');
+		$(div).slideDown(500);
+	}
+
+	function validateregister(){
+		div = document.getElementById('alertregister');
+		div2 = document.getElementById('into');
+		$(div2).innerHTML = "HOLA";
+		$(div).show(500);
+	}
+
+
+</script>
+
+{% endblock %} 
+
+

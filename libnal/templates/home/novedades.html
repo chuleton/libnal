@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} Conozcanos {% endblock %}
+{% block content %} 
+
+<h1>Noticias y Eventos</h1>
+    <div id="iniciosesion" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+            <div class="modal-header">
+              <button type="button" onclick="cerrarlogin();" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h3 id="myModalLabel" style="text-align: center;">Inicio de Sesion</h3>
+            </div>
+            <div class="modal-body" id="bdlogin">
+              <img src="/media/images/login.png" id="imglogin">
+              <div id="textlogin">
+                <label>Documento de identidad</label><input id="idloginuser" type="text"><br>
+                <label>Contraseña</label><input id="passloginuser" type="password"><br>
+                <a href="#" onclick="showforgot();"> ¿ Olvidaste tu contraseña ?</a><br><br>
+              <button class="btn btn-success" id="btnlog"> Iniciar Sesion </button></div><br><br>
+              <div id="forgot" style="display:none;">
+                <p>Escribe tu correo para recuperar tu contraseña</p>
+                <input id="emailforgot" type="text" placeholder="Ingresa tu correo electronico">
+                <button class="btn" id="btnforgot">Enviar</button><br><br>              
+              </div>
+            </div>
+              <div id="newcount" style="display:none;">
+                <div id="left1"><label>Nombres:</label><input id="nombreusuario" type="text"></div>
+                <div id="right1"><label>Apellidos:</label><input id="apellidousuario" type="text"></div>
+                <div id="left1"><label>Documento de identidad:</label><input id="idusuario" type="text"></div>
+                <div id="right1"><label>Correo electronico:</label><input id="emailusario" type="email"></div>
+                <div id="left1"><label>Contraseña:</label><input id="contrasena1usuario" type="text"></div>
+                <div id="right1"><label>Confirmar contraseña:</label><input id="contrasena2usuario" type="text"></div><br>
+                <div><input type="checkbox" id="checkinfo">Deseo recibir informacion sobre eventos y promociones.<br></div>
+              </div>
+            
+          <div class="modal-footer" id="footerlogin">
+            <button class="btn btn-info" id="btnnewcount" onclick="shownewlogin();"> Crear Cuenta </button>
+          </div>
+      </div>
+{% endblock %} 

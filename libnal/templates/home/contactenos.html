@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% block title %} Conozcanos {% endblock %}
+{% block content %} 
+<div id ="about" class="col-xs-12 col-sm-12">
+  <div id="aboutmenu" class="col-xs-4 col-sm-4">
+    <div class="list-group">
+      <a href="#" class="list-group-item active"><strong>Peticiones, Quejas o Reclamos?</strong>
+        <span id="icongo" class="fa fa-arrow-circle-right fa-lg"></span></a>
+      <a href="#" class="list-group-item"><strong>Noticias</strong>
+        <span id="icongo" class="fa fa-arrow-circle-right fa-lg"></span></a>
+      <a href="#" class="list-group-item"><strong>Eventos</strong>
+        <span id="icongo" class="fa fa-arrow-circle-right fa-lg"></span></a>
+      <a href="#" class="list-group-item"><strong>Donde nos encuentra?</strong>
+        <span id="icongo" class="fa fa-arrow-circle-right fa-lg"></span></a>
+      <a href="#" class="list-group-item"><strong>Conozca Nuestra Historia</strong>
+        <span id="icongo" class="fa fa-arrow-circle-right fa-lg"></span></a>
+    </div>
+  </div>
+<!-- ******************************  P. Q. R. ****************************** -->
+
+<div id="pqrarea" class="col-xs-8 col-sm-8 well" >
+    <h2 class="titlepsi">Peticiones, Quejas o Reclamos?</h2>
+      <p>En la Librería Nacional los clientes son nuestra razón de ser. Contáctenos para darle la buena atención que se merece:<br>
+      Su solicitud será Atendida en el menor tiempo posible.
+      </p>
+      <div class="col-xs-12 col-sm-12">
+        <h5><strong>Nombre y Apellidos</strong></h5>
+        <input id="nameuserpqr" class="form-control" type="text"></div>
+      <div class="col-xs-12 col-sm-12">
+        <h5><strong>Correo Electronico</strong></h5>
+        <input id="emailuserpqr" class="form-control" type="email"></div> 
+      <div class="col-xs-8 col-sm-8">
+        <h5><strong>Lugar del Incidente</strong></h5>
+        {% if agencia %}
+        <select class="form-control">
+          <option>Seleccione una agencia</option>
+          {% for agencia in agencia %}
+          <option>{{agencia.nombre}} - {{agencia.ciudad}}</option>
+          {% endfor %}
+        </select>
+          {% else %}
+          <h4>No existen agencias</h4>
+        {% endif %}
+      </div>
+      <div class="col-xs-4 col-sm-4">
+        <h5><strong>No.Orden</strong></h5>
+        <input id="passuser2" class="form-control" type="text"><br></div>
+      <div class="col-xs-12 col-sm-12">
+        <h5><strong>Cuéntenos su queja o inquietud. Estamos para escucharle:</strong></h5>
+        <textarea id="textareapetition" style="resize:none" class="form-control" rows="4"></textarea>
+      </div>
+      <div class="col-xs-6 col-sm-6">
+        <h5><strong>Codigo de Verificacion</strong></h5>
+        <input id="inputcapcha" class="form-control" type="text" disabled="disabled">
+      <button class="btn btn-primary" id="recapcha" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-undo fa-lg"></i></button></div>
+        <br>
+      <div class="col-xs-6 col-sm-6">
+        <h5><strong>Ingrese el codigo</strong></h5>
+        <input id="inputcapcha" class="form-control" type="text"><br></div>
+      <div id="cc" class="col-xs-12 col-sm-12">
+      <button class="btn btn-success" id="btnlog" onclick="validatepetition()"> Enviar </button></div>
+  </div> 
+
+
+
+<!-- ******************************  AGENCIAS  ****************************** -->
+<div id="agencias" class="col-xs-8 col-sm-8"   >
+<div id="div-conozcanos">
+    <ul id="tabla" class="nav nav-tabs">
+      <li id="pestana" class="active"><a href="#tabla-agencias" data-toggle="tab" onclick="pro('bogota');">Bogota</a></li>
+      <li id="pestana"><a href="#tabla-agencias" data-toggle="tab" onclick="pro('medellin');">Medellin</a></li>
+      <li id="pestana"><a href="#tabla-agencias" data-toggle="tab" onclick="pro('cali');">Cali</a></li>
+      <li id="pestana"><a href="#tabla-agencias" data-toggle="tab" onclick="pro('pereira');">Pereira</a></li>
+      <li id="pestana"><a href="#tabla-agencias" data-toggle="tab" onclick="pro('barranquilla');">Barranquilla</a></li>
+      <li id="pestana"><a href="#tabla-agencias" data-toggle="tab" onclick="pro('cartagena');">Cartagena</a></li>
+    </ul>
+</div>
+  <table id="general" >
+    <tr>
+      <td valign=top>
+        <div><img id="imgciudad" src="/media/images/bogota.jpg" alt="Bogota"></div>
+      </td>
+      <td>
+        <div id="contenido_tabla" class="tab-content">
+            <div class="tab-pane fade in active" id="tabla-agencias">
+              <h1>{{ encabezado }}</h1>
+              {% if agencia %}
+              <table class="table" id="tab-age">
+                  <theader>
+                    <tr>
+                    <th id="row-head"> + </th>
+                    <th id="row-head"> Agencia </th>
+                    <th id="row-head"> Direccion </th>
+                    <th id="row-head"> Telefono </th>
+                    </tr>
+                  </theader>
+                {% for a in agencia %}
+                    <tbody id="{{a.ciudad}}" class="row" name="{{a.ciudad}}">
+                      <tr onclick="on({{a.id}});" class="row2">
+                        <td>
+                          <img id="{{a.id}}a" src="/media/images/+.png" width="24px" height="24px">
+                        </td>
+                        <td>{{a.nombre}}</td>
+                        <td>{{a.direccion}}</td>
+                        <td id="row-tel">{{a.telefono}}</td>
+                      </tr>
+                      <tr id='down'>
+                        <td  id="{{a.id}}" style='display:none;' colspan=4>
+                          <div><pre id="info">{{a.horarios}}<br>{{a.manejo}}</pre></div>
+                        </td>
+                      </tr>
+                    </tbody>
+                {% endfor %}
+                </table>
+                {% else %}
+                  <h4>No existen agencias</h4>
+                {% endif %}
+          </div>       
+        </div>
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+<script type="text/javascript">
+
+function pro(dato){
+document.getElementById('imgciudad').src = "/media/images/"+dato+".jpg";
+$("#general").fadeIn(500);
+}
+
+function on(num){
+  div = document.getElementById(num);
+  if(document.getElementById(num).style.display=="none"){
+      $(div).fadeIn(500);
+      document.getElementById(num+'a').src = "/media/images/-.png";
+  }
+  else{
+      $(div).fadeOut(500);
+      document.getElementById(num+'a').src = "/media/images/+.png";
+  }
+}
+</script>
+<!-- ************************************************************************************ -->
+{% endblock %} 

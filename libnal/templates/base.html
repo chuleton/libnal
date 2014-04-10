@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <html lang="es">
+  <meta name="viewport" content="width=device-width">
+  <title>{% block title %}  Bienvenidos  {% endblock %}</title>
+  <!-- Estilos que importa la pagina --> 
+  <link rel="stylesheet" href="/media/css/estilos.css"> 
+  <link rel="stylesheet" href="/media/css/blog.css"> 
+  <link rel="stylesheet" href="/media/bootstrap/css/bootstrap.css"> 
+  <link rel="stylesheet" href="/media/bootstrap/css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="/media/awesome/css/font-awesome.min.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <!-- Scripts que importa la pagina --> 
+  <script type="text/javascript" src="/media/js/funciones.js"></script>
+  <script type="text/javascript" src="/media/js/accounting.js"></script>
+  <script type="text/javascript" src="/media/js/jquery.js"></script>
+  <script type="text/javascript" src="/media/js/bootstrap.min.js"></script>
+  <!-- Logo pestana del navegador --> 
+  <link rel="shortcut icon" href="/media/images/favicon.ico">
+
+
+</head> 
+<body>
+<!-- *********************************BARRA DE MENUS**********************************************  -->
+    <div id="header">
+      <div id="logo" class="col-xs-4 col-sm-4"></div>
+      <div id="busqueda" class="col-xs-6 col-sm-6">
+        <div id="arealogin">
+          <a class="blog-nav-item" href="{% url 'login_view' %}" id="btnlogin"><i class="fa fa-user fa-lg"></i> Iniciar Sesion </a>
+          <a class="blog-nav-item" href="{% url 'user_register' %}" id="btnlogin"><i class="fa fa-user fa-lg"></i> Registrate! </a>
+          <a class="blog-nav-item" href="#" id="btnshop"><i class="fa fa-shopping-cart fa-lg"></i>  Carrito (0)</a>
+          </div>
+        <div id="searcharea" class="input-group">
+          <input id="textsearch" type="search " class="form-control" placeholder="Buscar en la tienda..." maxlength="80">
+            <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><i class="fa fa-search fa-lg"></i></button></span>
+        </div>
+      </div>
+    </div>
+    </div>
+     <div class="blog-masthead col-xs-12 col-sm-12">
+      <div class="nav container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="{% url 'vista_principal' %}"><i class="fa fa-home fa-lg"></i> Inicio</a>
+          <a class="blog-nav-item" href="{% url 'vista_libros' %}"><i class="fa fa-book fa-lg"></i> Libros</a>
+          <a class="blog-nav-item" href="{% url 'vista_bonos' %}"><i class="fa fa-tags fa-lg"></i>  Bonos</a>
+          <a class="blog-nav-item" href="{% url 'vista_novedades' %}"><i class="fa fa-star fa-lg"></i> Novedades</a>
+          <a class="blog-nav-item" href="{% url 'vista_contactenos' %}"><i class="fa fa-envelope fa-lg"></i> Contactenos</a>
+          
+        </nav>
+      </div>
+    </div>
+
+<!-- ********************************************************************************************  -->
+<div class="col-xs-12 col-sm-12" id="contenido">
+    <section>
+      {% block content %}{% endblock %}
+    </section>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+ 
+<script type="text/javascript">
+
+$(document).ready(function() {
+$('#myCarousel').carousel();
+function tgt(){
+ divmn = document.getElementById('submenulibro');
+   if(divmn.style.display=="none"){
+      $(divmn).slideDown(500);
+  }
+}
+
+function mn(){
+  divmn = document.getElementById('submenulibro');
+   if(divmn.style.display=="none"){
+      $(divmn).slideDown(500);
+  }
+}
+</script>
+
+</body>
+</html>
+
+
+
