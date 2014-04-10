@@ -1,6 +1,8 @@
 from django.shortcuts  import render_to_response
 from django.template  import RequestContext
 from django.http import HttpResponseRedirect
+from django.contrib import auth
+from django.contrib.auth.forms import UserCreationForm
 
 
 from django.core.context_processors import csrf
@@ -29,9 +31,9 @@ def register_user(request):
 				inf = "Se ha agregado correctamente a la base de datos"
 			else:	
 				inf = "La informacion contiente datos incorrectos"	
-			form = RegisterForm()
-			ctx = {'form':form, 'info':inf}
-			return render_to_response('register/registro.html',ctx, context_instance=RequestContext(request))
+				form = RegisterForm()
+				ctx = {'form':form, 'info':inf}
+				return render_to_response('register/gracias.html',ctx, context_instance=RequestContext(request))
 	else:
 			form = RegisterForm()
 			ctx = {'form':form}

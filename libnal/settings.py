@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'libnal.apps.account',
     'libnal.apps.agencias',
     'libnal.apps.banner',
+    'libnal.apps.register',
 )
 
 AUTH_PROFILE_MODULE = 'userprofile.UserProfile', 
